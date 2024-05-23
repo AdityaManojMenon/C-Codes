@@ -1,0 +1,60 @@
+<h1>Autograde Results</h1>
+
+<h2>Final Score: <span style="color: blue">100%</span></h2>
+
+<table style="background-color:#3fc0FF;" cellpadding="5px" border="1px solid black" cellspacing="0"><tr><th>Test Case<th>Status<th>Checks<th>Passed<th>Failed<th>Score</tr>
+<tr onclick="window.location='#Test0';"><td>0: Example from main<td>Passing<td>2<td>2<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test1';"><td>1: Loop Check<td>Passing<td>1<td>1<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test2';"><td>2: Hidden<td>Passing<td>4<td>4<td>0<td>8 / 8</tr>
+<tr><th>TOTAL<td><td><td><td><td>10 / 10</tr></table>
+<p>Click on a row above to jump to the test case or scroll down for more details.<br>
+<hr><h2 id="Test0">Test Case 0: Example from main</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  std::vector&lt;int&gt; const vec_a = {1, 20, -3, 7, 56, 0, -2};
+  std::vector&lt;int&gt; const vec_b = {10, 4, -3, 8};
+  std::vector&lt;int&gt; const expected = {10, 20, -3, 8, 56, 0, -2};
+  std::vector&lt;int&gt; result = MaxVector&lt;int&gt;(vec_a, vec_b);
+  CHECK(result == expected);
+  std::vector&lt;std::string&gt; const vec_c = {&quot;hello&quot;, &quot;apple&quot;, &quot;CSE&quot;};
+  std::vector&lt;std::string&gt; const vec_d = {&quot;bye&quot;, &quot;banana&quot;};
+  std::vector&lt;std::string&gt; const expected2 = {&quot;hello&quot;, &quot;banana&quot;, &quot;CSE&quot;};
+  CHECK(MaxVector(vec_c, vec_d) == expected2);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test1">Test Case 1: Loop Check</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  // Check for loops
+  std::string loop_line = CheckForLoops();
+  bool no_loops = loop_line == &quot;&quot;;
+  CHECK(no_loops, &quot;Loop found here: &quot; + loop_line);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test2">Test Case 2: Hidden <small>[HIDDEN]</small></h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
