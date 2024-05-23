@@ -1,0 +1,2 @@
+Name:Caterpie,Blastoise,Victreebel,
+HP:45,79,80,

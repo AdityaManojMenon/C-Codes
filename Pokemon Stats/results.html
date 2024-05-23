@@ -1,0 +1,144 @@
+<h1>Autograde Results</h1>
+
+<h2>Final Score: <span style="color: blue">100%</span></h2>
+
+<table style="background-color:#3fc0FF;" cellpadding="5px" border="1px solid black" cellspacing="0"><tr><th>Test Case<th>Status<th>Checks<th>Passed<th>Failed<th>Score</tr>
+<tr onclick="window.location='#Test0';"><td>0: Regression Test<td>Passing<td>2<td>2<td>0<td>0 / 0</tr>
+<tr onclick="window.location='#Test1';"><td>1: Default Constructor<td>Passing<td>1<td>1<td>0<td>0 / 0</tr>
+<tr onclick="window.location='#Test2';"><td>2: Rule of Three<td>Passing<td>4<td>4<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test3';"><td>3: Rule of Three (another)<td>Passing<td>4<td>4<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test4';"><td>4: Rule of Three (hidden)<td>Passing<td>5<td>5<td>0<td>3 / 3</tr>
+<tr><th>TOTAL<td><td><td><td><td>5 / 5</tr></table>
+<p>Click on a row above to jump to the test case or scroll down for more details.<br>
+<hr><h2 id="Test0">Test Case 0: Regression Test</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+Counter c1(9);
+c1.Value();
+c1.Value();
+Counter c2(20);
+c2.Value();
+Counter c3 = c1 + c2;
+std::ostringstream oss;
+oss &lt;&lt; c1 &lt;&lt; std::endl 
+    &lt;&lt; c2 &lt;&lt; std::endl
+    &lt;&lt; c3 &lt;&lt; std::endl;
+CHECK(oss.str() == &quot;Counter(9)@7\nCounter(20)@19\nCounter(29)@26\n&quot;);
+std::vector&lt;std::string&gt; expected = { 
+    &quot;Constructor called with a 29&quot;, 
+    &quot;+ called.&quot;,
+    &quot;&lt;&lt; called.&quot;
+};
+CHECK(expected == c3.log_);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test1">Test Case 1: Default Constructor</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+Counter c;
+CHECK(c.log_.back() == &quot;Default Constructor called.&quot;);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test2">Test Case 2: Rule of Three</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+Counter e;
+CHECK(e.log_.back() == &quot;Default Constructor called.&quot;);
+Counter c(5);
+Counter d(c);
+std::vector&lt;std::string&gt; expected {
+  &quot;Constructor called with a 5&quot;,
+  &quot;Copy Constructor called.&quot;,
+};
+CHECK(d.log_ == expected);
+e = d;
+expected = {
+  &quot;Constructor called with a 5&quot;,
+  &quot;Copy Constructor called.&quot;,
+  &quot;= called.&quot;
+};
+CHECK(e.log_ == expected);
+Counter f(e);
+expected = {
+  &quot;Constructor called with a 5&quot;,
+  &quot;Copy Constructor called.&quot;,
+  &quot;= called.&quot;,
+  &quot;Copy Constructor called.&quot;
+};
+CHECK(f.log_ == expected);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test3">Test Case 3: Rule of Three (another)</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+Counter e;
+CHECK(e.log_.back() == &quot;Default Constructor called.&quot;);
+Counter c(5);
+Counter d(c);
+std::vector&lt;std::string&gt; expected {
+  &quot;Constructor called with a 5&quot;,
+  &quot;Copy Constructor called.&quot;,
+};
+CHECK(d.log_ == expected);
+e = d + c;
+CHECK(e.Value() == 10);
+expected = {
+  &quot;Constructor called with a 10&quot;,
+  &quot;+ called.&quot;,
+  &quot;= called.&quot;,
+  &quot;Value called. Returned a 10&quot;
+};
+CHECK(e.log_ == expected);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test4">Test Case 4: Rule of Three (hidden) <small>[HIDDEN]</small></h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
