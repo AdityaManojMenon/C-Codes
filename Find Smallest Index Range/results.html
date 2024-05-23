@@ -1,0 +1,43 @@
+<h1>Autograde Results</h1>
+
+<h2>Final Score: <span style="color: blue">100%</span></h2>
+
+<table style="background-color:#3fc0FF;" cellpadding="5px" border="1px solid black" cellspacing="0"><tr><th>Test Case<th>Status<th>Checks<th>Passed<th>Failed<th>Score</tr>
+<tr onclick="window.location='#Test0';"><td>0: Visible<td>Passing<td>3<td>3<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test1';"><td>1: Hidden<td>Passing<td>3<td>3<td>0<td>4 / 4</tr>
+<tr><th>TOTAL<td><td><td><td><td>5 / 5</tr></table>
+<p>Click on a row above to jump to the test case or scroll down for more details.<br>
+<hr><h2 id="Test0">Test Case 0: Visible</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+  std::deque&lt;int&gt; deq {3, 1, 4, 1, 5};
+  std::stack&lt;int&gt; input(deq);
+  std::stack&lt;int&gt; result = reverse_stack(input);
+  std::deque&lt;int&gt; deq_ex {5, 1, 4, 1, 3};
+  std::stack&lt;int&gt; expected(deq_ex);
+  CHECK(result.size() == expected.size());
+  while (!result.empty()) {
+    CHECK(result.top() == expected.top());
+    result.pop(); expected.pop();
+  }
+  std::stack&lt;double&gt; input_2;
+  std::stack&lt;double&gt; result_2 = reverse_stack(input_2);
+  std::stack&lt;double&gt; expected_2;
+  CHECK(result_2 == expected_2);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test1">Test Case 1: Hidden <small>[HIDDEN]</small></h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
