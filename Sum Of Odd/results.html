@@ -1,0 +1,59 @@
+<h1>Autograde Results</h1>
+
+<h2>Final Score: <span style="color: blue">100%</span></h2>
+
+<table style="background-color:#3fc0FF;" cellpadding="5px" border="1px solid black" cellspacing="0"><tr><th>Test Case<th>Status<th>Checks<th>Passed<th>Failed<th>Score</tr>
+<tr onclick="window.location='#Test0';"><td>0: Example Provided<td>Passing<td>1<td>1<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test1';"><td>1: Visible<td>Passing<td>1<td>1<td>0<td>1 / 1</tr>
+<tr onclick="window.location='#Test2';"><td>2: Hidden<td>Passing<td>1<td>1<td>0<td>8 / 8</tr>
+<tr><th>TOTAL<td><td><td><td><td>10 / 10</tr></table>
+<p>Click on a row above to jump to the test case or scroll down for more details.<br>
+<hr><h2 id="Test0">Test Case 0: Example Provided</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+std::vector&lt;int&gt; const population = {1, 2, 3, 4, 5, 5, 5, 5, 5, 5};
+std::vector&lt;int&gt; sample = SampleWithReplacement(population, 20, 123);
+std::ostringstream oss;
+std::ranges::copy(sample, std::ostream_iterator&lt;int&gt;(oss, &quot; &quot;));
+std::string expected{&quot;4 5 5 5 2 2 5 3 5 5 3 5 1 5 5 5 5 5 4 5 &quot;};
+CHECK(oss.str() == expected);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test1">Test Case 1: Visible</h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
+Source Code For Test:<br><br>
+<table style="background-color:#E3E0CF;"><tr><td><pre>
+
+std::vector&lt;int&gt; const population = {1, 2, 3, -7, 1};
+std::vector&lt;int&gt; sample = SampleWithReplacement(population, 15, 78);
+std::ostringstream oss;
+std::ranges::copy(sample, std::ostream_iterator&lt;int&gt;(oss, &quot; &quot;));
+std::string expected{&quot;-7 1 2 3 3 1 -7 2 1 2 1 -7 2 3 1 &quot;};
+CHECK(oss.str() == expected);
+</pre></tr></table>
+<table>
+<tr><th>Your Output<th> <th>Expected Output</tr>
+<tr><td valign="top" style="background-color:LightGoldenrodYellow"><pre>
+</pre>
+<td>&nbsp;<td valign="top" style="background-color:LightBlue"><pre>
+</pre></tr></table>
+<table>
+<tr><th>Diff</tr>
+<tr><td valign="top" style="background-color:LightGray"><pre>
+</pre></tr></table>
+<h2 id="Test2">Test Case 2: Hidden <small>[HIDDEN]</small></h2>
+<b>Result: <span style="color: Green">PASSED!</b></span><br><br>
+
